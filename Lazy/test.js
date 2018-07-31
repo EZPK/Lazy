@@ -34,5 +34,4 @@ client.stream(q,location, resultat, function (data, count, timestamp) {
         console.log(data[item].title.trim());
     }
     console.log('###############')
-
 });

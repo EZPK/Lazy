@@ -15,7 +15,16 @@
 
 const Database = use('Database')
 const Route = use('Route')
+const User = use('App/Models/User')
 
 Route.get('/', async () => {
     return await Database.table('Users').select('*')
+})
+
+Route.get('/jobs', async () => {
+    return await Database.table('Jobs').select('*')
+})
+
+Route.get('/users', async () => {
+    return await User.all()
 })

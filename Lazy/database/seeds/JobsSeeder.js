@@ -2,7 +2,7 @@
 
 /*
 |--------------------------------------------------------------------------
-| UserSeeder
+| JobSeeder
 |--------------------------------------------------------------------------
 |
 | Make use of the Factory instance to seed database with dummy data or
@@ -12,18 +12,12 @@
 
 const Factory = use('Factory')
 const Database = use('Database')
-const User = use('App/Models/User')
 
-class UserSeeder {
+class JobsSeeder {
   async run () {
-
-    const user = new User()
-    user.username = Math.random().toString(36).substring(7);
-    user.email = Math.random().toString(36).substring(7)+'@mail.com'
-    user.password = 'pwd'
-    
-    await user.save()
+    const jobs = await Database.table('jobs')
+    console.log(jobs)
   }
 }
 
-module.exports = UserSeeder
+module.exports = JobsSeeder

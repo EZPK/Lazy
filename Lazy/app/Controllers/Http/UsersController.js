@@ -4,10 +4,14 @@ const Users = use('App/Models/User')
 
 
 class UsersController {
-    async index({ auth }){
-        const user = await auth.getUser()
-
+    async me({ auth }){
+        const user = await auth.getUser() // same as await auth.current.user
         return user
+    }
+
+    async index(){
+        const users = await Users.all()
+        return users
     }
 
     async login({ request, auth }){

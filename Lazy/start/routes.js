@@ -17,24 +17,12 @@ const Database = use('Database')
 const Route = use('Route')
 const User = use('App/Models/User')
 
-// Route.get('/', async () => {
-//     return await Database.table('Users').select('*')
-// })
-
-
-// Route.get('/users', async () => {
-//     return await User.all()
-// })
-
 Route.post('/register', 'UsersController.register')
 Route.post('/login', 'UsersController.login')
-Route.get('/me', 'UsersController.index').middleware('auth')
+Route.get('/me', 'UsersController.me').middleware('auth')
 
-// Route.get('/logged/:id', 'UsersController.logged').middleware('auth')
-
-
-Route.get('/jobs', 'JobsController.index').middleware('auth')
-Route.get('/users', 'UsersController.index').middleware('auth')
+Route.get('/jobs', 'JobsController.index')
+Route.get('/users', 'UsersController.index')
 
 
 // Route.post('jobs', 'JobsController.store')

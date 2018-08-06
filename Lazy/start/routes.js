@@ -17,14 +17,18 @@ const Database = use('Database')
 const Route = use('Route')
 const User = use('App/Models/User')
 
-Route.get('/', async () => {
-    return await Database.table('Users').select('*')
-})
+// Route.get('/', async () => {
+//     return await Database.table('Users').select('*')
+// })
 
-Route.get('/jobs', async () => {
-    return await Database.table('Jobs').select('*')
-})
 
-Route.get('/users', async () => {
-    return await User.all()
-})
+// Route.get('/users', async () => {
+//     return await User.all()
+// })
+
+Route.get('/jobs', 'JobsController.index')
+Route.get('/users', 'UsersController.index')
+
+
+// Route.post('jobs', 'JobsController.store')
+// Route.delete('jobs/:id', 'JobsController.destroy')

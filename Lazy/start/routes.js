@@ -26,8 +26,15 @@ const User = use('App/Models/User')
 //     return await User.all()
 // })
 
-Route.get('/jobs', 'JobsController.index')
-Route.get('/users', 'UsersController.index')
+Route.post('/register', 'UsersController.register')
+Route.post('/login', 'UsersController.login')
+Route.get('/me', 'UsersController.index').middleware('auth')
+
+// Route.get('/logged/:id', 'UsersController.logged').middleware('auth')
+
+
+Route.get('/jobs', 'JobsController.index').middleware('auth')
+Route.get('/users', 'UsersController.index').middleware('auth')
 
 
 // Route.post('jobs', 'JobsController.store')

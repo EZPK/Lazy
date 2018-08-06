@@ -17,6 +17,10 @@ const Database = use('Database')
 const Route = use('Route')
 const User = use('App/Models/User')
 
+Route.get('/', () => {
+    return '<h1>Coucou tête de bite de Grégoire</h1>'
+})
+
 Route.post('/register', 'UsersController.register')
 Route.post('/login', 'UsersController.login')
 Route.get('/me', 'UsersController.me').middleware('auth')

@@ -4,11 +4,14 @@ const Users = use('App/Models/User')
 
 
 class UsersController {
+
+    // Show current user. Match /me URL
     async me({ auth }){
         const user = await auth.getUser() // same as await auth.current.user
         return user
     }
 
+    // Show all users. Match /users URL
     async index(){
         const users = await Users.all()
         return users

@@ -20,7 +20,13 @@ client.search(resultat,page,q,location,function (error, data, count, page, resul
     data.map((i)=> {
         jobs.push(i.title)
     })
-    console.log(data[0])
+    // console.log(data[0])
+    // console.log(data)
+
+    for(let item in data){
+        console.log(data[item])
+        // console.log(data[item].languageCodes[0].trim())
+    }
 });
 
 // let counter = 0;

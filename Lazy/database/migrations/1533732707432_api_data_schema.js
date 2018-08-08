@@ -5,11 +5,12 @@ const Schema = use('Schema')
 class ApiDataSchema extends Schema {
   up () {
     this.create('api_data', (table) => {
+      // alter table
       table.increments()
       table.string('Author', 254).notNullable()
       table.string('Contract_type', 254).notNullable()
       table.string('Description', 254).notNullable()
-      table.integer('Id_job').notNullable()
+      table.integer('api_data_id').notNullable()
       table.string('Language_code', 254).notNullable()
       table.string('Last_publication', 254).notNullable()
       table.string('Location', 254).notNullable()
@@ -24,7 +25,9 @@ class ApiDataSchema extends Schema {
   }
 
   down () {
-    this.drop('api_data')
+    this.table('api_data', (table) => {
+      // reverse alternations
+    })
   }
 }
 

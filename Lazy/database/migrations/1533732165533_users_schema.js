@@ -2,20 +2,24 @@
 
 const Schema = use('Schema')
 
-class UserSchema extends Schema {
+class UsersSchema extends Schema {
   up () {
     this.create('users', (table) => {
+      // alter table
       table.increments()
-      table.string('username', 80).notNullable().unique()
+      table.string('username', 80)
       table.string('email', 254).notNullable().unique()
       table.string('password', 60).notNullable()
+      table.integer('criteria_id').unsigned().references('id').inTable('criteria')
       table.timestamps()
     })
   }
 
   down () {
-    this.drop('users')
+    this.table('users', (table) => {
+      // reverse alternations
+    })
   }
 }
 
-module.exports = UserSchema
+module.exports = UsersSchema
